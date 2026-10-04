@@ -107,3 +107,12 @@ footer.end { text-align: center; padding: 0 24px 56px; font-family: var(--sans);
   figure.ill { padding: 0 16px; }
   .chlist .t { font-size: 24px; }
 }
+
+/* параллельный путь вдоль вопросов */
+.path { position: relative; padding-left: 52px; }
+.path::before { content: ''; position: absolute; left: 14px; top: 6px; bottom: 14px; width: 1px; background: var(--ink); }
+.path::after { content: ''; position: absolute; left: 10px; bottom: 4px; width: 0; height: 0; border-left: 4.5px solid transparent; border-right: 4.5px solid transparent; border-top: 10px solid var(--ink); }
+.path-label { position: absolute; left: 0; top: 24px; writing-mode: vertical-rl; transform: rotate(180deg); background: var(--bg); padding: 10px 0; font-family: var(--display); font-style: italic; font-size: 19px; line-height: 1; white-space: nowrap; color: var(--ink); }
+.path h3:first-child { margin-top: 0; }
+@media (max-width: 600px) { .path { padding-left: 40px; } .path::before { left: 10px; } .path::after { left: 6px; } .path-label { font-size: 17px; } }
+main li .li-note { display: inline-block; margin-top: 2px; font-family: var(--sans); font-size: 12.5px; line-height: 1.5; color: var(--dim); }
