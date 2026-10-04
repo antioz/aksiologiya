@@ -116,3 +116,6 @@ footer.end { text-align: center; padding: 0 24px 56px; font-family: var(--sans);
 .path h3:first-child { margin-top: 0; }
 @media (max-width: 600px) { .path { padding-left: 40px; } .path::before { left: 10px; } .path::after { left: 6px; } .path-label { font-size: 17px; } }
 main li .li-note { display: inline-block; margin-top: 2px; font-family: var(--sans); font-size: 12.5px; line-height: 1.5; color: var(--dim); }
+main p.note { margin: -6px 0 28px; padding-left: 18px; border-left: 1px solid var(--ink); font-family: var(--display); font-style: italic; font-size: 21px; line-height: 1.35; }
+main p.artefact { margin: 0 0 18px; padding: 12px 16px; background: #f6f6f3; font-size: 15px; line-height: 1.55; }
+main p.artefact span { display: block; margin-bottom: 4px; font-family: var(--sans); font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: var(--dim); }
