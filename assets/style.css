@@ -1,0 +1,108 @@
+/* Аксиология — исследование. Стиль по эссе antiosov.ru/nonfiction */
+:root {
+  --bg: #ffffff; --ink: #0a0a0a; --dim: #888888; --soft: #555555;
+  --line: #e6e6e6; --accent: #00E0A4;
+  --serif: 'PT Serif', Georgia, serif;
+  --display: 'Cormorant Garamond', 'Times New Roman', Georgia, serif;
+  --sans: 'Inter', system-ui, sans-serif;
+  --toc-w: 240px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); }
+body { font-family: var(--serif); -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+
+/* оглавление */
+.toc {
+  position: fixed; top: 0; left: 0; bottom: 0; width: var(--toc-w);
+  padding: 40px 28px; border-right: 1px solid var(--line); overflow-y: auto;
+  font-family: var(--sans); font-size: 12px; line-height: 1.5; background: var(--bg); z-index: 20;
+}
+.toc .brand { display: block; margin-bottom: 36px; font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: var(--dim); text-decoration: none; }
+.toc .brand:hover { color: var(--ink); }
+.toc ol { list-style: none; margin: 0; padding: 0; }
+.toc > ol > li { margin-bottom: 18px; }
+.toc .ch { display: block; text-decoration: none; color: var(--dim); }
+.toc .ch .n { display: block; font-size: 10px; letter-spacing: .25em; text-transform: uppercase; margin-bottom: 2px; }
+.toc .ch .t { font-family: var(--display); font-style: italic; font-size: 20px; line-height: 1.15; color: var(--soft); }
+.toc .ch:hover .t { color: var(--ink); }
+.toc li.cur > .ch .t { color: var(--ink); }
+.toc li.cur > .ch .n { color: var(--ink); }
+.toc li.cur > .ch .n::before { content: ''; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); margin-right: 8px; vertical-align: 1px; }
+.toc .secs { margin: 10px 0 0; padding-left: 14px; border-left: 1px solid var(--line); }
+.toc .secs li { margin: 4px 0; }
+.toc .secs a { text-decoration: none; color: var(--dim); }
+.toc .secs a:hover, .toc .secs a.on { color: var(--ink); }
+.toc .soon { margin-top: 28px; font-size: 11px; color: #bbb; letter-spacing: .05em; }
+.toc-btn { display: none; }
+
+/* страница */
+.page { margin-left: var(--toc-w); }
+header.hero { text-align: center; padding: 96px 24px 56px; }
+header.hero .kicker { font-family: var(--sans); font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: var(--dim); margin-bottom: 22px; }
+header.hero h1 { margin: 0 0 20px; font-family: var(--display); font-style: italic; font-weight: 300; font-size: clamp(52px, 8vw, 108px); line-height: 1; letter-spacing: -0.01em; }
+header.hero .sub { font-family: var(--sans); font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: var(--dim); }
+
+main { max-width: 680px; margin: 0 auto; padding: 0 24px 40px; font-size: 16.5px; line-height: 1.7; text-wrap: pretty; }
+main p { margin: 0 0 16px; }
+main h2 { margin: 72px 0 22px; font-family: var(--display); font-style: italic; font-weight: 500; font-size: 36px; line-height: 1.1; scroll-margin-top: 24px; }
+main h3 { margin: 40px 0 14px; font-family: var(--sans); font-weight: 500; font-size: 11px; letter-spacing: .25em; text-transform: uppercase; color: var(--dim); }
+main ul, main ol { margin: 0 0 20px; padding: 0; }
+main ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+main ul > li { padding-left: 20px; position: relative; }
+main ul > li::before { content: ''; position: absolute; left: 0; top: .68em; width: 5px; height: 5px; border-radius: 50%; background: var(--ink); }
+main ol { padding-left: 28px; display: flex; flex-direction: column; gap: 6px; }
+main ol li::marker { font-family: var(--sans); font-size: 13px; color: var(--dim); }
+main li ul, main li ol { margin: 8px 0 4px; }
+main blockquote { margin: 26px 0; padding: 2px 0 2px 24px; border-left: 1px solid var(--ink); font-family: var(--display); font-style: italic; font-size: 22px; line-height: 1.35; }
+main blockquote p { margin: 0 0 8px; }
+main strong { font-weight: 700; }
+main code { font-family: ui-monospace, Menlo, monospace; font-size: .88em; background: #f4f4f2; padding: 1px 5px; border-radius: 3px; }
+
+/* художественные переходы */
+.passage { max-width: 600px; margin: 0 auto; padding: 24px 24px 8px; text-align: center; }
+.passage p { font-family: var(--display); font-style: italic; font-weight: 400; font-size: 22px; line-height: 1.5; color: #222; margin: 0 0 14px; }
+.passage::before, .passage.out::after { content: '⁂'; display: block; font-size: 18px; color: var(--dim); margin: 8px 0 22px; }
+.passage.out { padding: 40px 24px 24px; }
+.passage.out::before { display: none; }
+.passage.out::after { margin: 22px 0 0; }
+
+/* иллюстрации */
+figure.ill { margin: 44px auto; max-width: 760px; padding: 0 24px; }
+figure.ill img { display: block; width: 100%; height: auto; filter: grayscale(1) contrast(1.05); }
+figure.ill figcaption { margin-top: 10px; font-family: var(--sans); font-size: 11px; line-height: 1.5; color: var(--dim); text-align: center; letter-spacing: .02em; }
+
+.nav-next { max-width: 680px; margin: 0 auto; padding: 40px 24px 80px; display: flex; justify-content: space-between; gap: 16px; font-family: var(--sans); font-size: 12px; letter-spacing: .2em; text-transform: uppercase; }
+.nav-next a { color: var(--dim); text-decoration: none; }
+.nav-next a:hover { color: var(--ink); }
+.nav-next .wait { color: #bbb; }
+footer.end { text-align: center; padding: 0 24px 56px; font-family: var(--sans); font-size: 11px; color: #aaa; letter-spacing: .05em; }
+
+/* обложка */
+.cover main { text-align: left; }
+.cover .lead { font-size: 19px; line-height: 1.6; }
+.chlist { list-style: none; padding: 0; margin: 32px 0; display: block; }
+.chlist li { padding: 18px 0; border-top: 1px solid var(--line); }
+.chlist li::before { display: none; }
+.chlist a { text-decoration: none; display: flex; gap: 18px; align-items: baseline; }
+.chlist .n { font-family: var(--sans); font-size: 11px; letter-spacing: .25em; text-transform: uppercase; color: var(--dim); min-width: 72px; }
+.chlist .t { font-family: var(--display); font-style: italic; font-size: 30px; line-height: 1.1; }
+.chlist a:hover .t { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.chlist .wait .t { color: #bbb; }
+
+@media (max-width: 960px) {
+  .toc { transform: translateX(-100%); transition: transform .25s ease; box-shadow: none; }
+  .toc.open { transform: none; box-shadow: 0 0 40px rgba(0,0,0,.12); }
+  .page { margin-left: 0; }
+  .toc-btn { display: block; position: fixed; top: 14px; left: 14px; z-index: 30; background: var(--bg); border: 1px solid var(--line); border-radius: 18px; padding: 7px 14px; font-family: var(--sans); font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--ink); cursor: pointer; }
+}
+@media (max-width: 600px) {
+  header.hero { padding: 80px 16px 40px; }
+  main { padding: 0 16px 24px; font-size: 16px; }
+  main h2 { font-size: 30px; }
+  .passage { padding-left: 16px; padding-right: 16px; }
+  .passage p { font-size: 20px; }
+  figure.ill { padding: 0 16px; }
+  .chlist .t { font-size: 24px; }
+}
